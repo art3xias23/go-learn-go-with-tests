@@ -21,7 +21,11 @@ func SumAllTails(arrs ...[]int) []int {
 	var sums []int
 
 	for _, numbers := range arrs {
+		if len(numbers) == 0{
+		sums = append(sums, 0)
+		}else {
 		sums = append(sums, Sum(numbers[1:]))
+	}
 	}
 
 	return sums
