@@ -7,7 +7,7 @@ func Sum(numbers []int) (sumation int) {
 	return
 }
 
-func SumAll(numbersToSum ...[]int) []int{
+func SumAll(numbersToSum ...[]int) []int {
 	numbersLen := len(numbersToSum)
 	sums := make([]int, numbersLen)
 	for i, currentArray := range numbersToSum {
@@ -15,5 +15,14 @@ func SumAll(numbersToSum ...[]int) []int{
 	}
 
 	return sums
+}
 
+func SumAllTails(arrs ...[]int) []int {
+	var sums []int
+
+	for _, numbers := range arrs {
+		sums = append(sums, Sum(numbers[1:]))
+	}
+
+	return sums
 }
