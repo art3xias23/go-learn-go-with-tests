@@ -1,5 +1,7 @@
 package arrays
+
 import "testing"
+import "reflect"
 
 func TestSum(t *testing.T) {
 	t.Run("Testing a sum of array with 5 elements", func(t *testing.T) {
@@ -23,4 +25,13 @@ func TestSum(t *testing.T) {
 			t.Errorf("expected %d, got %d", expected, got)
 		}
 	})
+}
+
+func TestSumAll(t *testing.T) {
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	expected := []int{3, 9}
+
+	if !reflect.DeepEqual(got, expected) {
+		t.Errorf("expected %q, got %q", expected, got)
+	}
 }

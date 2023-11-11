@@ -6,3 +6,14 @@ func Sum(numbers []int) (sumation int) {
 	}
 	return
 }
+
+func SumAll(numbersToSum ...[]int) []int{
+	numbersLen := len(numbersToSum)
+	sums := make([]int, numbersLen)
+	for i, currentArray := range numbersToSum {
+		sums[i] = Sum(currentArray)
+	}
+
+	return sums
+
+}
