@@ -14,6 +14,7 @@ func TestShapes(t *testing.T) {
 }
 
 func checkErrors(t *testing.T, shape Shape, want float64){
+	t.Helper()
 	got := shape.Area()
 		if want != got {
 			t.Errorf("want %.2f, got %.2f", want, got)
