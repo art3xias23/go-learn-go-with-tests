@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestSearch(t *testing.T){
+func TestMap(t *testing.T){
 
 	assertString:=func(t *testing.T, want string, got string, ffor string){
 
@@ -30,5 +30,13 @@ t.Run("Seaching for non-existing key", func (t *testing.T){
 
 	assertError(t, err) 
 })
+
+t.Run("should find an item after inserting it" ,func(t *testing.T){
+		var d = Dictionary{}
+		d.Add("test", "this is test")
+		def, _ := d.Search("test")
+		want:="this is test"
+		assertString(t, want, def, "test")
+	})
 }
 
