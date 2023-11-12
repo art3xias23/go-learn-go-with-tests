@@ -10,7 +10,11 @@ type (
 )
 
 func (w *Wallet) Deposit(deposit Bitcoin) {
-	w.balance += deposit 
+	w.balance += deposit
+}
+
+func (w *Wallet) Withdrawal(b Bitcoin) {
+	w.balance -= b
 }
 
 func (w Wallet) Balance() Bitcoin {
