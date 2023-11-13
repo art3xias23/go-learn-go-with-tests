@@ -1,15 +1,19 @@
-package main
+package mocking
 
 import (
 	"fmt"
 	"io"
 	"os"
 )
+const goWording = "Go!"
 
 func main(){
-	Countdown(os.Stdout)	
+	Countdown(os.Stdout, 3)
 }
+func Countdown(writer io.Writer, count int){
+	for cnt :=count; cnt > 0; cnt--{
+	fmt.Fprintln(writer, cnt)
+	}
 
-func Countdown(out io.Writer){
-	fmt.Fprint(out, "3")
+	fmt.Fprint(writer, goWording)
 }

@@ -1,4 +1,4 @@
-package main
+package mocking
 
 import (
 	"bytes"
@@ -6,14 +6,17 @@ import (
 )
 
 func Test_Countdown(t *testing.T){
-	buffer:=&bytes.Buffer{}
+	buffer:= bytes.Buffer{}
 
-	Countdown(buffer)
+	Countdown(&buffer, 3)
 
+	want:=`3
+2
+1
+Go!`
 	got:=buffer.String()
-	want := "3"
 
-		if got!= want{
-		t.Errorf("got %q want %q", got, want)
+	if want!= got{
+		t.Errorf("got %q, want %q", got, want)
 	}
 }
