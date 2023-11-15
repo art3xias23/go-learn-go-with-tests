@@ -16,16 +16,17 @@ func TestRacer(t *testing.T) {
 		w.WriteHeader(http.StatusOK)
 	}))
 
+	defer 	slowServer.Close()
+	defer fastServer.Close()
+
 	slowURL := slowServer.URL
 	fastURL := fastServer.URL 
 
 	want:= fastURL
-	got := Racer(slowURL, fastURL)
+	got := RacerSelect(slowURL, fastURL)
 
 	if got != want {
 		t.Errorf("got %q, want %q", got, want)
 	}
 
-	slowServer.Close()
-	fastServer.Close()
 }
