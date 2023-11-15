@@ -28,5 +28,17 @@ func TestRacer(t *testing.T) {
 	if got != want {
 		t.Errorf("got %q, want %q", got, want)
 	}
-
 }
+
+	func BenchmarkRacerSelect(b *testing.B){
+		for i:=0; i<b.N; i++{
+			RacerSelect("google.com", "amazon.com")
+		}
+	}
+
+	func BenchmarkRacerTime(b *testing.B){
+		for i:=0; i<b.N; i++{
+			RacerTime("google.com", "amazon.com")
+		}
+	}
+
